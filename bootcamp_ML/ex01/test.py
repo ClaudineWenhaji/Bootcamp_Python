@@ -1,3 +1,5 @@
+from tinyStatistician import TinyStatistician
+
 a = [1, 42, 300, 10, 59]
 
 ts = TinyStatistician()

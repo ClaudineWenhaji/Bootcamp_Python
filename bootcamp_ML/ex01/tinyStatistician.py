@@ -12,7 +12,7 @@ class TinyStatistician:
         if not isinstance(x, (list, np.ndarray)):
             return False
 
-        if len(x) == 0
+        if len(x) == 0:
             return False
 
         try:
@@ -63,28 +63,33 @@ class TinyStatistician:
 
         if not self._validate(x):
             return None
+
         if not isinstance(p, (int, float)):
             return None
+
         if p < 0 or p > 100:
             return None
 
         values = []
         for value in x:
-            values.append(float(value))
+            values.append(float(value)) # conversion des valeurs en float
 
         values.sort()
         n = len(values)
 
-        if n == 1
-        reteurn float(values[0])
+        if n == 1:
+            return float(values[0])
 
         index = (p / 100) * (n - 1)
 
         lower = int(math.floor(index))  # arrondit vers le bas
         upper = int(math.ceil(index))   # arrondit vers le haut
 
-        if lower == upper:
+        # si l'index est entier
+        if lower == upper: 
             return float(values[lower])
+
+        # sinon linear interpolation
         return float(values[lower] + (index - lower) * (values[upper] - values[lower]))
 
     def quartile(self, x):
@@ -105,10 +110,13 @@ class TinyStatistician:
 
         if not self._validate(x):
             return None
+
         n = len(x)
         if n < 2:
             return None
+
         mean_value = self.mean(x)
+
         total = 0
 
         for value in x:
