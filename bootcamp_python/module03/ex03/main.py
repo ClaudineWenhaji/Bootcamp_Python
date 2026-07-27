@@ -6,7 +6,7 @@ module_dir = os.path.join(base_dir, "..")
 sys.path.append(os.path.abspath(module_dir))
 from ex01.ImageProcessor import ImageProcessor
 imp = ImageProcessor()
-arr = imp.load('/home/vnaoussi/Downloads/bootcamp_python-version-3.3.0/module03/attachments/elon_canaGAN.png')
+arr = imp.load('/home/clwenhaj/image.png')
 from ex03.ColorFilter import ColorFilter
 cf = ColorFilter()
 imp.display(cf.invert(arr))
